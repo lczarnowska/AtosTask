@@ -11,5 +11,10 @@ namespace AtosTask.Model
         public CustomerOrderBy OrderBy { get; set; } = CustomerOrderBy.Id;
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public OrderByDirection Direction { get; set; } = Model.OrderByDirection.Ascending;
+
+        public override string ToString()
+        {
+            return $"{nameof(PageSize)}={PageSize} {nameof(PageNumber)}={PageNumber} {nameof(OrderBy)}={OrderBy} {nameof(Direction)}={Direction}";
+        }
     }
 }

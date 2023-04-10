@@ -7,3 +7,4 @@ Kilka uwag:
 5) Z racji tego, że zadanie sugerowało zastosowanie mocka dla warstwy persystencji - warstwa ta jest zamockowana, a co za tym idzie nie wykonywałam testów jednostkowych dla mocka. Co więcej, warstwa persystencji jest oparta o Listę, a nie o kolekcję odporną na równoległy zapis (bo po co w mocku), więc zdaję sobie sprawę, że API jest wrażliwe na równoległy zapis  i odczyt. W tej sytuacji poleci błąd 500.
 6) Konfiguracja 'ReturnHttpNotAcceptable = true' wymusza w Swagger ustawienie 'Media type = application/json' lub 'Media type = application/xml' w przeciwnym wypadku zwracany jest kod 406
 7) Ze względu na mała liczbę danych nie ma zastosowanego ResponseCaching
+8) Delete nie jest idempotentny, bo nie mam statusu na usunięty. Wielokrotny DELETE zwraca NotFound przy kolejnych odwołaniach.
